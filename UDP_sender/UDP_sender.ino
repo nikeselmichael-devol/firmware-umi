@@ -357,7 +357,7 @@ void publishFrame() {
   f.gyroY = (int32_t)((lastImu.gy / gyroLsbPerDps) * 1000.0f);
   f.gyroZ = (int32_t)((lastImu.gz / gyroLsbPerDps) * 1000.0f);
 
-  uint8_t packet[80];
+  uint8_t packet[64];
   size_t n = buildPacket(f, packet, sizeof(packet));
 
   udp.beginPacket(DEST_IP, DEST_PORT);
